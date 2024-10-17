@@ -27,11 +27,24 @@ class Customer extends Model<Customer> {
     declare customer_code: string;
 
     @AllowNull(false)
+    @Column({
+        type: DataType.STRING,
+    })
+    declare installation_number: string;
+
+    @AllowNull(false)
     @Unique
     @Column({
         type: DataType.STRING,
     })
     declare name: string;
+
+    @AllowNull(false)
+    @Column({
+        type: DataType.STRING,
+        defaultValue: "CEMIG"
+    })
+    declare distributor: string;
 
     @HasMany(() => Bill)
     declare bills: Bill[];

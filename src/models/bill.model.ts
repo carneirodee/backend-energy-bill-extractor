@@ -61,7 +61,7 @@ class Bill extends Model<Bill> {
     @Column({
         type: DataType.INTEGER,
     })
-    declare energy_qt: string;
+    declare energy_qt: number;
 
     @AllowNull(false)
     @Column({
@@ -72,7 +72,7 @@ class Bill extends Model<Bill> {
     @Column({
         type: DataType.INTEGER,
     })
-    declare energy_scee_s_icms_qt: string;
+    declare energy_scee_s_icms_qt: number;
 
     @AllowNull(false)
     @Column({
@@ -83,7 +83,7 @@ class Bill extends Model<Bill> {
     @Column({
         type: DataType.INTEGER,
     })
-    declare compensated_energy_qt: string;
+    declare compensated_energy_qt: number;
 
     @AllowNull(false)
     @Column({
