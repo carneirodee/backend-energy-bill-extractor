@@ -1,9 +1,10 @@
 import BillRepository from "../repositories/bill.repository";
-
+import CustomerRepository from "../repositories/customer.repository";
 export default class BillConntroller {
     constructor() {
     }
     repository = new BillRepository();
+    repository_customer = new CustomerRepository();
 
     get = async (req: any, res: any, next: any) => {
         try {
@@ -22,6 +23,24 @@ export default class BillConntroller {
             const data = await this.repository.getById(id)
             if (data !== null) {
                 res.status(200).send(data)
+            } else {
+                res.status(404).send({
+                    error_code: 'NOT_FOUND',
+                    error_description: 'Conta não encontrado'
+                })
+            }
+        } catch (erro) {
+            res.status(500).send({
+                message: 'Falha ao processar sua requisição' + erro
+            })
+        }
+    }
+    getByCustomerCode = async (req: any, res: any, next: any) => {
+        try {
+            const data = await this.repository_customer.getById(id)
+            if (data !== null) {
+                const data_bills = await this.repository.getByCustomerCode(id);
+                res.status(200).send(data_bills)
             } else {
                 res.status(404).send({
                     error_code: 'NOT_FOUND',

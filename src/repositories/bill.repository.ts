@@ -22,7 +22,11 @@ export default class BillRepository {
         const bill = await Bill.findAll({
             where: {
                 customer_code: id
-            }
+            },
+            order: [
+                ['reference_date_month', 'ASC'],
+                ['reference_date_year', 'ASC']
+            ]
         });
         return bill;
     }
