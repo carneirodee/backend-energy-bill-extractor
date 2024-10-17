@@ -1,6 +1,8 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import InitDB from './connection';
+import customerRouter from './routes/customer.route';
+import billRouter from './routes/bill.route';
 import dotenv from 'dotenv'
 import path from 'path';
 import fs from 'fs';
@@ -16,8 +18,14 @@ const swaggerDocs = loadJSON('../swagger.json');
 
 app.use(express.json());
 
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
-// app.use('/measures', measureRouter)
+app.use((req,res,next) =>{
+    let time = new Date(Date.now()).toString();
+    console.log(req.method,req.hostname, req.path, time);
+    next();
+});
+app.use('/api-v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+app.use('/api-v1/bills', billRouter);
+app.use("/api-v1/customers", customerRouter);
 
 async function Initialization(): Promise<void> {
     try {
@@ -30,8 +38,6 @@ async function Initialization(): Promise<void> {
 Initialization();
 
 
-app.get("/", (request: any, response: any) => {
-    response.status(200).send({ message: "success" });
-});
+
 
 export default app;

@@ -26,7 +26,7 @@ export default class BillConntroller {
             } else {
                 res.status(404).send({
                     error_code: 'NOT_FOUND',
-                    error_description: 'Conta não encontrado'
+                    error_description: 'Conta não encontrada'
                 })
             }
         } catch (erro) {
@@ -44,7 +44,7 @@ export default class BillConntroller {
             } else {
                 res.status(404).send({
                     error_code: 'NOT_FOUND',
-                    error_description: 'Conta não encontrado'
+                    error_description: 'Conta não encontrada'
                 })
             }
         } catch (erro) {
@@ -87,7 +87,7 @@ export default class BillConntroller {
             } else {
                 res.status(404).send({
                     error_code: 'NOT_FOUND',
-                    error_description: 'Conta não encontrado'
+                    error_description: 'Conta não encontrada'
                 })
             }
         } catch (erro) {
@@ -100,15 +100,16 @@ export default class BillConntroller {
     delete = async (req: any, res: any, next: any) => {
         let id = req.params.id
         try {
-            const data = await this.repository.deleteById(id)
+            const data = await this.repository.getById(id);
             if (data !== null) {
+                await this.repository.deleteById(id);
                 res.status(200).send({
                     message: 'Deleted'
                 })
             } else {
                 res.status(404).send({
                     error_code: 'NOT_FOUND',
-                    error_description: 'Conta não encontrado'
+                    error_description: 'Conta não encontrada'
                 })
             }
         } catch (erro) {

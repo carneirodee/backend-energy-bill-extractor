@@ -81,8 +81,10 @@ export default class CustomerConntroller {
     delete = async (req: any, res: any, next: any) => {
         let id = req.params.id
         try {
-            const data = await this.repository.deleteById(id)
+
+            const data = await this.repository.getById(id)
             if (data !== null) {
+                await this.repository.deleteById(id)
                 res.status(200).send({
                     message: 'Deleted'
                 })
