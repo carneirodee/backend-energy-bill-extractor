@@ -36,6 +36,7 @@ export default class BillController {
         }
     }
     getByClientCode = async (req: any, res: any, next: any) => {
+        let id = req.params.id
         try {
             const data = await this.repository_client.getById(id)
             if (data !== null) {

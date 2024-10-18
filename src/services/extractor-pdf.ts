@@ -24,14 +24,14 @@ export const extractorDataPdf = async () => {
                         arrayOfLines.indexOf("Código de Débito AutomáticoInstalaçãoVencimentoTotal a pagar") == 32 ? arrayOfLines[35] : arrayOfLines.indexOf("Código de Débito AutomáticoInstalaçãoVencimentoTotal a pagar") == 33 ? arrayOfLines[36] : arrayOfLines[32];
                     let client_codes_titles_index = arrayOfLines.indexOf("        Nº DO CLIENTE                      Nº DA INSTALAÇÃO");
                     let client_codes = arrayOfLines[client_codes_titles_index + 1].split("        ");
-                    let client_code = Number(client_codes[0].trim());
+                    let client_code = client_codes[0].trim();
                     let installation_number = client_codes[1].trim();
                     let reference_index = arrayOfLines.indexOf("         Referente a                                Vencimento                       Valor a pagar (R$)");
                     let reference_data = arrayOfLines[reference_index + 1].split('               ');
                     let date_reference = reference_data[0].trim();
                     let reference_date_data = date_reference.split('/');
                     let reference_date_month = reference_date_data[0];
-                    let reference_date_year = Number(reference_date_data[1]);
+                    let reference_date_year = reference_date_data[1];
                     let due_date = reference_data[1];
                     let total_value = reference_data[2].replace(",", ".").trim();
                     let bill_data_index = arrayOfLines.indexOf("Itens da FaturaUnid.Quant.Preço UnitValor (R$) PIS/COFINSBase Calc.Aliq.ICMSTarifa Unit.") + 1;
@@ -39,22 +39,22 @@ export const extractorDataPdf = async () => {
                     energy_data = energy_data.filter(el => {
                         return el != "";
                     })
-                    let energy_qt = Number(energy_data[2].trim());
-                    let energy_value = Number(energy_data[4].replace(",", ".").trim());
+                    let energy_qt = energy_data[2].trim();
+                    let energy_value = energy_data[4].replace(",", ".").trim();
                     let energy_scee_s_icms_data = arrayOfLines[bill_data_index + 2].split(" ");
                     energy_scee_s_icms_data = energy_scee_s_icms_data.filter(el => {
                         return el != "";
                     })
-                    let energy_scee_s_icms_qt = Number(energy_scee_s_icms_data[4].trim());
-                    let energy_scee_s_icms_value = Number(energy_scee_s_icms_data[6].replace(",", ".").trim());
+                    let energy_scee_s_icms_qt = energy_scee_s_icms_data[4].trim();
+                    let energy_scee_s_icms_value = energy_scee_s_icms_data[6].replace(",", ".").trim();
                     let compensated_energy_data = arrayOfLines[bill_data_index + 3].split(" ");
                     compensated_energy_data = compensated_energy_data.filter(el => {
                         return el != "";
                     })
-                    let compensated_energy_qt = Number(compensated_energy_data[4].trim());
-                    let compensated_energy_value = Number(compensated_energy_data[6].replace(",", ".").trim());
+                    let compensated_energy_qt = compensated_energy_data[4].trim();
+                    let compensated_energy_value = compensated_energy_data[6].replace(",", ".").trim();
                     let public_lighting_data = arrayOfLines[bill_data_index + 4].split(" ");
-                    let public_lighting_value = Number(public_lighting_data.pop()?.replace(",", "."));
+                    let public_lighting_value = public_lighting_data.pop()?.replace(",", ".");
 
                     // console.log("************************************************");
                     // console.log("********** DADOS EXTRAÍDOS N", key,"*********************");
