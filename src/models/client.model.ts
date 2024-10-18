@@ -3,28 +3,31 @@ import {
     Column,
     Model,
     DataType,
-    HasMany,
     AllowNull,
-    Unique,
     AutoIncrement
 } from 'sequelize-typescript';
 
-import Bill from './bill.model';
 
 @Table({
     timestamps: true,
-    tableName: "customer",
-    modelName: 'Customer'
+    tableName: "client",
+    modelName: 'Client'
 })
-class Customer extends Model<Customer> {
+class Client extends Model<Client> {
 
+    @AutoIncrement
     @AllowNull(false)
-    @Unique
     @Column({
         primaryKey: true,
-        type: DataType.STRING,
+        type: DataType.INTEGER,
     })
-    declare customer_code: string;
+    declare id: number;
+
+    @AllowNull(false)
+    @Column({
+        type: DataType.DOUBLE,
+    })
+    declare client_code: number;
 
     @AllowNull(false)
     @Column({
@@ -33,7 +36,6 @@ class Customer extends Model<Customer> {
     declare installation_number: string;
 
     @AllowNull(false)
-    @Unique
     @Column({
         type: DataType.STRING,
     })
@@ -46,9 +48,7 @@ class Customer extends Model<Customer> {
     })
     declare distributor: string;
 
-    @HasMany(() => Bill)
-    declare bills: Bill[];
 
 }
 
-export default Customer;
+export default Client;

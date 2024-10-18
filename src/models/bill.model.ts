@@ -10,7 +10,7 @@ import {
     HasOne
 } from 'sequelize-typescript';
 
-import Customer from './customer.model';
+import Client from './client.model';
 
 @Table({
     timestamps: true,
@@ -28,11 +28,10 @@ class Bill extends Model<Bill> {
     declare id: number;
 
     @AllowNull(false)
-    @ForeignKey(() => Customer)
     @Column({
-        type: DataType.STRING,
+        type: DataType.DOUBLE,
     })
-    declare customer_code: string;
+    declare client_code: number;
 
     @AllowNull(false)
     @Column({
@@ -41,7 +40,6 @@ class Bill extends Model<Bill> {
     declare installation_number: string;
 
     @AllowNull(false)
-    @Unique
     @Column({
         type: DataType.STRING,
     })
@@ -49,7 +47,7 @@ class Bill extends Model<Bill> {
 
     @AllowNull(false)
     @Column({
-        type: DataType.INTEGER,
+        type: DataType.DOUBLE,
     })
     declare reference_date_year: number;
 
@@ -59,7 +57,7 @@ class Bill extends Model<Bill> {
     declare due_date: string;
 
     @Column({
-        type: DataType.INTEGER,
+        type: DataType.DOUBLE,
     })
     declare energy_qt: number;
 
@@ -70,7 +68,7 @@ class Bill extends Model<Bill> {
     declare energy_value: number;
 
     @Column({
-        type: DataType.INTEGER,
+        type: DataType.DOUBLE,
     })
     declare energy_scee_s_icms_qt: number;
 
@@ -81,7 +79,7 @@ class Bill extends Model<Bill> {
     declare energy_scee_s_icms_value: number;
 
     @Column({
-        type: DataType.INTEGER,
+        type: DataType.DOUBLE,
     })
     declare compensated_energy_qt: number;
 
@@ -89,13 +87,13 @@ class Bill extends Model<Bill> {
     @Column({
         type: DataType.DOUBLE,
     })
-    declare  compensated_energy_value: number;
+    declare compensated_energy_value: number;
 
     @AllowNull(false)
     @Column({
         type: DataType.DOUBLE,
     })
-    declare  public_lighting_value: number;
+    declare public_lighting_value: number;
 }
 
 export default Bill;

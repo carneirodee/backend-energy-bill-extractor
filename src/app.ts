@@ -1,7 +1,7 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import InitDB from './connection';
-import customerRouter from './routes/customer.route';
+import clientRouter from './routes/client.route';
 import billRouter from './routes/bill.route';
 import dotenv from 'dotenv'
 import path from 'path';
@@ -25,7 +25,7 @@ app.use((req,res,next) =>{
 });
 app.use('/api-v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use('/api-v1/bills', billRouter);
-app.use("/api-v1/customers", customerRouter);
+app.use("/api-v1/clients", clientRouter);
 
 async function Initialization(): Promise<void> {
     try {
@@ -35,9 +35,6 @@ async function Initialization(): Promise<void> {
     }
 }
 
-Initialization();
-
-
-
+Initialization()
 
 export default app;

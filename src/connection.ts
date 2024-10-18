@@ -1,7 +1,10 @@
 import sequelize from './db';
-import Customer from './models/customer.model';
+import Client from './models/client.model';
 import Bill from './models/bill.model';
+import { extractorDataPdf } from './services/extractor-pdf';
+
 import pg from 'pg';
+import { deleteDuplicates } from './utils/deleteDuplicates';
 
 const InitDB = async () => {
   const client = new pg.Client({
@@ -30,9 +33,13 @@ const InitDB = async () => {
   }).catch((err: any) => {
     console.log(err);
   });
-  sequelize.addModels([Customer, Bill])
-  Customer.sync();
-  Bill.sync();
+  sequelize.addModels([Client, Bill])
+  await Client.sync();
+  await Bill.sync();
+  extractorDataPdf();
+  setInterval(() => {
+    deleteDuplicates();
+  }, 6000)
 }
 
 export default InitDB;
