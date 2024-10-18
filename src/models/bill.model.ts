@@ -29,9 +29,9 @@ class Bill extends Model<Bill> {
 
     @AllowNull(false)
     @Column({
-        type: DataType.DOUBLE,
+        type: DataType.STRING,
     })
-    declare client_code: number;
+    declare client_code: string;
 
     @AllowNull(false)
     @Column({
@@ -47,7 +47,7 @@ class Bill extends Model<Bill> {
 
     @AllowNull(false)
     @Column({
-        type: DataType.DOUBLE,
+        type: DataType.INTEGER,
     })
     declare reference_date_year: number;
 
@@ -57,43 +57,48 @@ class Bill extends Model<Bill> {
     declare due_date: string;
 
     @Column({
-        type: DataType.DOUBLE,
+        type: DataType.STRING,
     })
-    declare energy_qt: number;
+    declare total_value: string;
+
+    @Column({
+        type: DataType.STRING,
+    })
+    declare energy_qt: string;
 
     @AllowNull(false)
     @Column({
-        type: DataType.DOUBLE,
+        type: DataType.STRING,
     })
-    declare energy_value: number;
+    declare energy_value: string;
 
     @Column({
-        type: DataType.DOUBLE,
+        type: DataType.STRING,
     })
-    declare energy_scee_s_icms_qt: number;
-
-    @AllowNull(false)
-    @Column({
-        type: DataType.DOUBLE,
-    })
-    declare energy_scee_s_icms_value: number;
-
-    @Column({
-        type: DataType.DOUBLE,
-    })
-    declare compensated_energy_qt: number;
+    declare energy_scee_s_icms_qt: string;
 
     @AllowNull(false)
     @Column({
-        type: DataType.DOUBLE,
+        type: DataType.STRING,
     })
-    declare compensated_energy_value: number;
+    declare energy_scee_s_icms_value: string;
+
+    @Column({
+        type: DataType.STRING,
+    })
+    declare compensated_energy_qt: string;
 
     @AllowNull(false)
     @Column({
-        type: DataType.DOUBLE,
+        type: DataType.STRING,
     })
-    declare public_lighting_value: number;
+    declare compensated_energy_value: string;
+
+    @AllowNull(false)
+    @Column({
+        type: DataType.STRING,
+    })
+    declare public_lighting_value: string;
 }
 
 export default Bill;
