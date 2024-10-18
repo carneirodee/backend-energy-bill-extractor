@@ -1,10 +1,10 @@
 import BillRepository from "../repositories/bill.repository";
-import CustomerRepository from "../repositories/customer.repository";
-export default class BillConntroller {
+import ClientRepository from "../repositories/client.repository";
+export default class BillController {
     constructor() {
     }
     repository = new BillRepository();
-    repository_customer = new CustomerRepository();
+    repository_client = new ClientRepository();
 
     get = async (req: any, res: any, next: any) => {
         try {
@@ -35,11 +35,11 @@ export default class BillConntroller {
             })
         }
     }
-    getByCustomerCode = async (req: any, res: any, next: any) => {
+    getByClientCode = async (req: any, res: any, next: any) => {
         try {
-            const data = await this.repository_customer.getById(id)
+            const data = await this.repository_client.getById(id)
             if (data !== null) {
-                const data_bills = await this.repository.getByCustomerCode(id);
+                const data_bills = await this.repository.getByClientCode(id);
                 res.status(200).send(data_bills)
             } else {
                 res.status(404).send({

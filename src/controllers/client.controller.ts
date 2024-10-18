@@ -1,9 +1,9 @@
-import CustomerRepository from "../repositories/customer.repository";
+import ClientRepository from "../repositories/client.repository";
 
-export default class CustomerConntroller {
+export default class ClientController {
     constructor() {
     }
-    repository = new CustomerRepository();
+    repository = new ClientRepository();
 
     get = async (req: any, res: any, next: any) => {
         try {

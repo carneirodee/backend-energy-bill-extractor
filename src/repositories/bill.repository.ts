@@ -18,10 +18,10 @@ export default class BillRepository {
         return bill;
     }
 
-    getByCustomerCode = async (id: any) => {
+    getByClientCode = async (id: any) => {
         const bill = await Bill.findAll({
             where: {
-                customer_code: id
+                client_code: id
             },
             order: [
                 ['reference_date_month', 'ASC'],
@@ -32,6 +32,16 @@ export default class BillRepository {
     }
 
     create = async (data: any) => {
+        const old = await Bill.findOne({
+            where: {
+                client_code: data.client_code,
+                reference_date_month: data.reference_date_month,
+                reference_date_year: data.reference_date_year
+            }
+        })
+        if(old) {
+            return
+        }
         const bill = await Bill.create(data);
         return bill.save();
     }
