@@ -9,7 +9,7 @@
     "start": "npm run build && node --experimental-specifier-resolution=node --loader ts-node/esm ./build/src/server.js",
     "dev": "nodemon",
     "db:create": "npx sequelize-cli db:create",
-    "db:migrate": "npm run db:create"
+    "db:migrate": "npm run db:create && npx sequelize-cli db:migrate"
   },
   "type": "module",
   "keywords": [],
@@ -47,7 +47,6 @@
     "pg": "^8.13.0",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
-    "ts-node": "^10.9.2",
     "tsx": "^4.19.0",
     "typescript": "^5.5.4"
   }

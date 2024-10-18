@@ -96,6 +96,7 @@ export const extractorDataPdf = async () => {
                         reference_date_month,
                         reference_date_year,
                         due_date,
+                        total_value,
                         energy_qt,
                         energy_value,
                         energy_scee_s_icms_qt,

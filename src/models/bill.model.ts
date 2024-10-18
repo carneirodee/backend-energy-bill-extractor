@@ -59,6 +59,11 @@ class Bill extends Model<Bill> {
     @Column({
         type: DataType.STRING,
     })
+    declare total_value: string;
+
+    @Column({
+        type: DataType.STRING,
+    })
     declare energy_qt: string;
 
     @AllowNull(false)
