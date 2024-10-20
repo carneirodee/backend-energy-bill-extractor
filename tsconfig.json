@@ -5,7 +5,7 @@
     "outDir": "./build",
     "rootDir": "",
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true

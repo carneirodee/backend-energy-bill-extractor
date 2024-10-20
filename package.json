@@ -9,13 +9,14 @@
     "start": "npm run build && node --experimental-specifier-resolution=node --loader ts-node/esm ./build/src/server.js",
     "dev": "nodemon",
     "db:create": "npx sequelize-cli db:create",
-    "db:migrate": "npm run db:create && npx sequelize-cli db:migrate"
+    "db:migrate": "npx sequelize-cli db:migrate"
   },
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "debug": "^4.3.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.24.8",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.13",
     "@types/jsonwebtoken": "^9.0.6",
