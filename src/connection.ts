@@ -38,7 +38,7 @@ const InitDB = async () => {
   sequelize.authenticate().then(() => {
     console.log("Success!");
   }).catch((err: any) => {
-    console.log(err);
+    console.log("Sequelize error:",err);
   });
   sequelize.addModels([Client, Bill])
  await Client.sync();
