@@ -1,7 +1,7 @@
 import fs from 'fs';
 import pdf from 'pdf-parse';
 
-let dataBuffer = fs.readFileSync(`bills/3001116735-02-2024.pdf`);
+let dataBuffer = fs.readFileSync(`bills/3001422762-01-2024.pdf`);
                 pdf(dataBuffer).then(async function (data) {
                     let arrayOfLines = [];
                     arrayOfLines = data.text.split("\n");
