@@ -10,7 +10,7 @@ const database = process.env.NODE_ENV == 'production' ? process.env.DB_DATABASE 
 
 const sequelize = new Sequelize( `${database}`, "postgres", "admin", {
   host: process.env.NODE_ENV == 'production' ? process.env.DB_HOST : process.env.DB_HOST_TEST,
-  dialect: process.env.DB_DIALECT as Dialect,
+  dialect: "postgres",
   pool: {
     max: 9,
     min: 0,
