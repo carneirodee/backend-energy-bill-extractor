@@ -18,10 +18,10 @@ const isTest = process.env.NODE_ENV === "test";
 
 app.use(express.json());
 
-const loadJSON = (path: any) => JSON.parse(fs.readFileSync(path).toString());
+// const loadJSON = (path: any) => JSON.parse(fs.readFileSync(path).toString());
 
-const swaggerDocs = loadJSON('swagger.json');
-app.use('/api-v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+// const swaggerDocs = loadJSON('swagger.json');
+// app.use('/api-v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 app.use(cors())
 app.use((req, res, next) => {
