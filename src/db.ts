@@ -31,5 +31,5 @@ if (!isProduction) {
     },
     ssl: true
 })
-
+}
 export default sequelize;
