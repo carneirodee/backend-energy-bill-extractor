@@ -40,7 +40,7 @@ export default class BillRepository {
             }
         })
         if(old) {
-            return
+            return old
         }
         const bill = await Bill.create(data);
         return bill.save();

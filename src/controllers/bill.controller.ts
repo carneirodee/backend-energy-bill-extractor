@@ -182,7 +182,7 @@ export default class BillController {
     put = async (req: any, res: any, next: any) => {
         let id = req.params.id
         try {
-            
+
             const data = await this.repository.update(id, req.body)
             if (data !== null) {
                 res.status(200).send({
