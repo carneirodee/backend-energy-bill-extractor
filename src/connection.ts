@@ -1,10 +1,9 @@
 import sequelize from './db';
 import Client from './models/client.model';
 import Bill from './models/bill.model';
-import { extractorDataPdf } from './services/extractor-pdf';
-
 import pg from 'pg';
 import { deleteDuplicates } from './utils/deleteDuplicates';
+import { extractDataPdf } from './scraping';
 
 const InitDB = async () => {
 
@@ -41,9 +40,9 @@ const InitDB = async () => {
     console.log(err);
   });
   sequelize.addModels([Client, Bill])
-  Client.sync();
-  Bill.sync();
-  extractorDataPdf();
+ await Client.sync();
+ await Bill.sync();
+  extractDataPdf();
   setInterval(() => {
     deleteDuplicates();
   }, 6000)

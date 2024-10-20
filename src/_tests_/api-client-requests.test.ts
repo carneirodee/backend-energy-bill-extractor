@@ -31,7 +31,7 @@ describe('PUT - Updating a Client Profile', () => {
 
 describe('GET - Getting a Client Profile', () => {
     it('should return status 200', async () => {
-        const client_code = "7204076117";
+        const client_code = 7204076117;
         const res = await request(app)
             .get(`/api-v1/clients/${client_code}`);
             console.log("RES", res.body)
