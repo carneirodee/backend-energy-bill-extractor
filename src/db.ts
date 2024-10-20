@@ -12,7 +12,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 let sequelize : Sequelize;
 if (!isProduction) {
    sequelize = new Sequelize(`${database}`, "postgres", "admin", {
-    host: "energy_measure_owner:pb8PNSe5mwcx@ep-frosty-rice-a565pfm1.us-east-2.aws.neon.tech",
+    host: process.env.NODE_ENV === 'test' ? process.env.DB_HOST_TEST : process.env.DB_HOST,
     dialect: "postgres",
     pool: {
       max: 9,
