@@ -55,8 +55,6 @@ export default class BillController {
         }
     }
 
-<<<<<<< Updated upstream
-=======
     getBillsByClients = async (req: any, res: any, next: any) => {
         try {
             const data_clients = await this.repository_client.getAll();
@@ -160,7 +158,6 @@ export default class BillController {
         }
     }
 
->>>>>>> Stashed changes
     post = async (req: any, res: any, next: any) => {
         try {
             const data = await this.repository.create(req.body);
