@@ -69,7 +69,7 @@ export default class BillController {
                 })
                 return {
                     nameUc: client.name,
-                    numUc: client.client_code,
+                    numUc: client.installation_number,
                     distributor: "CEMIG",
                     client: client.name,
                     bills: billsByMonthAndYear
