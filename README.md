@@ -41,8 +41,6 @@ Defining environment
 
 Change the envoriment variable NODE_ENV in src/envoriment.env file to 'test'
 
-src/envoriment.env
-
 ```javascript
 PORT='8080'
 DB_HOST_TEST='localhost'
@@ -71,8 +69,6 @@ NODE_ENV='test'
 ### Defining environment
 
 Change the envoriment variable NODE_ENV in src/envoriment.env file to 'development'
-
-src/envoriment.env
 
 ```javascript
 PORT='8080'
