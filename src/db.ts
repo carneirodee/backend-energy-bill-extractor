@@ -20,7 +20,7 @@ if (!isProduction) {
     }
   });
 } else {
-  sequelize = new Sequelize(process.env.DB_URL as string, {
+  sequelize = new Sequelize(process.env.DB_URL, {
     dialect: "postgres"
   })
 }
