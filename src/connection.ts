@@ -8,8 +8,9 @@ import { extractDataPdf } from './scraping';
 const InitDB = async () => {
 
   const isTest = process.env.NODE_ENV === 'test';
+  const isProduction= process.env.NODE_ENV === 'production';
 
-  if (!isTest) {
+  if (!isTest || !isProduction) {
 
     const client = new pg.Client({
       host: process.env.DB_HOST,
