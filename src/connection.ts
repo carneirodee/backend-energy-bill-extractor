@@ -35,18 +35,18 @@ const InitDB = async () => {
 
   }
 
-  //   sequelize.authenticate().then(() => {
-  //     console.log("Success!");
-  //   }).catch((err: any) => {
-  //     console.log("Sequelize error:",err);
-  //   });
-  //   sequelize.addModels([Client, Bill])
-  //  await Client.sync();
-  //  await Bill.sync();
-  //   extractDataPdf();
-  //   setInterval(() => {
-  //     deleteDuplicates();
-  //   }, 6000)
+    sequelize.authenticate().then(() => {
+      console.log("Success!");
+    }).catch((err: any) => {
+      console.log("Sequelize error:",err);
+    });
+    sequelize.addModels([Client, Bill])
+   await Client.sync();
+   await Bill.sync();
+    extractDataPdf();
+    setInterval(() => {
+      deleteDuplicates();
+    }, 6000)
 }
 
 export default InitDB;
