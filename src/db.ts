@@ -20,8 +20,7 @@ if (!isProduction) {
     }
   });
 } else {
-  sequelize = new Sequelize(`postgresql://energy_measure_owner:pb8PNSe5mwcx@ep-frosty-rice-a565pfm1.us-east-2.aws.neon.tech/energy_measure?sslmode=require
-DB_HOST='localhost', {
+  sequelize = new Sequelize("postgresql://energy_measure_owner:pb8PNSe5mwcx@ep-frosty-rice-a565pfm1.us-east-2.aws.neon.tech/energy_measure?sslmode=require", {
     dialect: "postgres"
   })
 }
