@@ -1,5 +1,6 @@
 import BillRepository from "../repositories/bill.repository";
 import ClientRepository from "../repositories/client.repository";
+import { sortByMonth } from "../utils/sortArrayByMonths";
 export default class BillController {
     constructor() {
     }
@@ -137,6 +138,8 @@ export default class BillController {
                 return acc;
             }, []);
 
+            sortByMonth(result2);
+            sortByMonth(result1)
 
             const data = {
                 total_cons: total_cons.toFixed(2),
